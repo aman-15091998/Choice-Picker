@@ -1,0 +1,35 @@
+body{
+    background-color:rgb(76, 148, 219);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.main{
+    padding: 20px;
+    width: 400px;
+    height: auto;
+    outline: 5px snow double;
+    position: absolute;
+    left: 35%;
+    top: 10%;
+
+}
+.textarea{
+    width: 90%;
+    border-radius: 0.5em;
+    margin: 20px;
+}
+.tag{
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 1em;
+    margin: 5px;
+    display: inline-block;
+}
+.highlight{
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 1em;
+    margin: 5px;
+    display: inline-block;
+}
