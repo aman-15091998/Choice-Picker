@@ -8,12 +8,10 @@ function addChoice(e){
     if(e.key!=='Enter')
     {
         const array=textarea.value.split(',');
-        // const temp=array[array.length-1].split('\n');
        
-        // array[array.length-1]=temp[0];
         newArray=[];
         let ind=0;
-        
+
         array.forEach((element) => {
             if(element.trim()!=='')
             {
@@ -37,6 +35,15 @@ textarea.addEventListener('keypress', choose);
 function choose(e){
     if(e.key==='Enter' && newArray.length!==0)
     {
+        newArray.forEach((element, ind)=>{
+            if(choiceDiv.children[ind].classList.contains('highlight')===true)
+            {
+                choiceDiv.children[ind].classList.remove('highlight');
+                choiceDiv.children[ind].classList.add('tag');
+                console.log(`removed class from index=${ind}`);
+            }
+    
+        })
         setTimeout(()=>{
              textarea.value=''},10);
 
@@ -46,28 +53,36 @@ function choose(e){
 
 }
 
+
 function selectRandom(newArray){
     let i=Math.floor(Math.random()*30);
+    let copyied=i;
     console.log(i);
     let select;
+
     let int=setInterval(()=>{ 
         let c=Math.floor(Math.random()*newArray.length);
             choiceDiv.children[c].classList.remove('tag');
             choiceDiv.children[c].classList.add('highlight');
+            
             setTimeout(() => {
-                choiceDiv.children[c].classList.add('tag');
-                choiceDiv.children[c].classList.remove('highlight');    
+                choiceDiv.children[c].classList.remove('highlight');  
+                choiceDiv.children[c].classList.add('tag');  
+                
             }, 100);
-            i--;
         
     },100);
 
     setTimeout(() => {
         clearInterval(int);
-        select=Math.floor(Math.random()*newArray.length);
-        choiceDiv.children[select].classList.remove('tag');
-        choiceDiv.children[select].classList.add('highlight');
-    }, i*120);
+
+        setTimeout(()=>{
+            select=Math.floor(Math.random()*newArray.length);
+            choiceDiv.children[select].classList.remove('tag');
+            choiceDiv.children[select].classList.add('highlight');
+           
+        }, 100)
+    }, i*100);
         
 }
 
